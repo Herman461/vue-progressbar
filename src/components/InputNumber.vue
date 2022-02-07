@@ -1,6 +1,6 @@
 <template>
   <div class="input-number">
-    <div class="input-number__label">{{ `${label} (${minValue}-${maxValue}${union})`}}</div>
+    <div class="input-number__label">{{ `${label} (${minValue} - ${maxValue}${unit})`}}</div>
     <div class="input-number__actions">
       <button
           type="button"
@@ -33,7 +33,7 @@ export default {
     maxValue: { type: Number, default: 100 },
     minValue: { type: Number, default: 1 },
     label: { type: String, default: "" },
-    union: { type: String, default: ""}
+    unit: { type: String, default: ""}
   },
   methods: {
   },
@@ -51,26 +51,30 @@ export default {
 <style lang="scss">
 .input-number {
   &__label {
-    margin-bottom: 5px;
+    margin-bottom: 3px;
   }
   &__actions {
+    display: flex;
     width: 120px;
     height: 40px;
-    display: flex;
+
     border: 1px solid transparent;
-    &:hover {
-      border-color: red;
+    @media (any-hover: hover) {
+      &:hover {
+        border-color: #aa89da;
+      }
     }
   }
   &__button {
     flex: 0 0 40px;
-    background-color: #974df5;
-    color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
+
     font-size: 22px;
     font-weight: 700;
+    background-color: #7422dc;
+    color: #fff;
     &--disabled {
       cursor: not-allowed;
       background-color: #575555;
